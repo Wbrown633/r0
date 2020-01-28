@@ -7,6 +7,16 @@ from collections import OrderedDict
 import json
 import sys
 import os
+import RPi.GPIO as GPIO
+
+# RasPi Pin definitions
+Sw1 = 16 # User Switch supply
+Sw2 = 12 # User Switch read
+
+# Pin setup
+GPIO.setmode(GPIO.BCM) # Broadcom pin numbering scheme
+GPIO.setup(Sw1, GPIO.OUT) # User switch pin set as output
+GPIO.setup(Sw2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)   # user switch pin set as input
 
 #from NanoController import Nano
 from NewEraPumps import PumpNetwork
@@ -119,11 +129,11 @@ while True:
 ##F127
 
 pumps.buzz(0)
-print("add 1 mL F127, then type 'ok'")
+print("add 1 mL F127, then push 'ok'")
 
 while True:
-    n = input("Please enter 'ok':")
-    if n.strip() == 'ok':
+    n = input("Please push 'ok':")
+    if GPIO.input(D1_sw) == 1:
         break
 
 print("Rate:", pumps.set_rate(-50, 'MH', addr))

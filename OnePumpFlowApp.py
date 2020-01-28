@@ -132,8 +132,7 @@ pumps.buzz(0)
 print("add 1 mL F127, then push 'ok'")
 
 while True:
-    n = input("Please push 'ok':")
-    if GPIO.input(Sw1) == 1:
+    if GPIO.input(Sw2) == 0:
         break
 
 print("Rate:", pumps.set_rate(-50, 'MH', addr))

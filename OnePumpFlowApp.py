@@ -17,6 +17,7 @@ Sw2 = 12 # User Switch read
 GPIO.setmode(GPIO.BCM) # Broadcom pin numbering scheme
 GPIO.setup(Sw1, GPIO.OUT) # User switch pin set as output
 GPIO.setup(Sw2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)   # user switch pin set as input
+GPIO.output(Sw1, GPIO.HIGH)  #provide power for user switch
 
 #from NanoController import Nano
 from NewEraPumps import PumpNetwork

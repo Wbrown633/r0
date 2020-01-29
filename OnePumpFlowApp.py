@@ -297,3 +297,5 @@ while True:
     if stat == 'S':
         print("QiaZOL extraction complete")
         break
+
+ GPIO.cleanup() # clean up all GPIO 

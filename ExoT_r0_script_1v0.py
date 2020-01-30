@@ -3,6 +3,11 @@
 # To execute remotely use:
 # DISPLAY=:0.0 python3 ChipFlowApp.py
 
+# Script written for P006 Rev v0.2
+# 500 uL sample volume
+# 5 mL syringes waste & lysate
+
+
 from collections import OrderedDict
 import json
 import sys
@@ -117,7 +122,7 @@ addr = WASTE_ADDR
 ##ENGAGE PUMP
 
 print("Rate:", pumps.set_rate(-5, 'MM', addr))
-print("Volume:", pumps.set_volume(0.2, 'ML',  addr))
+print("Volume:", pumps.set_volume(0.4, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:
@@ -201,7 +206,7 @@ while True:
         break
     
 print("running sample") 
-print("Rate:", pumps.set_rate(-1, 'MH', addr))
+print("Rate:", pumps.set_rate(-15, 'MH', addr))
 print("Volume:", pumps.set_volume(0.5, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
@@ -221,7 +226,7 @@ while True:
         break
     
 print("running first PBS wash") 
-print("Rate:", pumps.set_rate(-1, 'MH', addr))
+print("Rate:", pumps.set_rate(-15, 'MH', addr))
 print("Volume:", pumps.set_volume(0.2, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
@@ -241,7 +246,7 @@ while True:
         break
     
 print("running second PBS wash") 
-print("Rate:", pumps.set_rate(-1, 'MH', addr))
+print("Rate:", pumps.set_rate(-15, 'MH', addr))
 print("Volume:", pumps.set_volume(0.8, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
@@ -261,7 +266,7 @@ while True:
         break
     
 print("running third PBS wash") 
-print("Rate:", pumps.set_rate(-1, 'MH', addr))
+print("Rate:", pumps.set_rate(-15, 'MH', addr))
 print("Volume:", pumps.set_volume(1, 'ML',  addr))
 print("Run:", pumps.run(addr))
 

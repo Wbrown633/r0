@@ -130,14 +130,14 @@ while True:
 ##F127
 
 pumps.buzz(0)
-print("add 1 mL F127, then push 'ok'")
+print("add 1.7 mL F127, then push 'ok'")
 
 while True:
     if GPIO.input(Sw2) == 0:
         break
 
 print("Rate:", pumps.set_rate(-50, 'MH', addr))
-print("Volume:", pumps.set_volume(0.8, 'ML',  addr))
+print("Volume:", pumps.set_volume(1, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:
@@ -148,8 +148,8 @@ while True:
 #10 minute pause. 0.016ML/0.1 MH = 0.16H = 10 min
 
 print("running slow flow for 10 minutes")
-print("Rate:", pumps.set_rate(-100, 'UH', addr))
-print("Volume:", pumps.set_volume(0.016, 'ML',  addr))
+print("Rate:", pumps.set_rate(-500, 'UH', addr))
+print("Volume:", pumps.set_volume(0.5, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:
@@ -161,11 +161,10 @@ while True:
 ###PBS wash
 
 pumps.buzz(0)
-print("add 1 mL 1x PBS, then type 'ok'")
+print("add 1 mL 1x PBS, then push 'ok'")
 
 while True:
-    n = input("Please enter 'ok':")
-    if n.strip() == 'ok':
+    if GPIO.input(Sw2) == 0:
         break
 
 print("running PBS wash") 
@@ -195,11 +194,10 @@ while True:
 ###Sample flow step
 
 pumps.buzz(0)
-print("add 500 uL sample, then type 'ok'")
+print("add 500 uL sample, then push 'ok'")
 
 while True:
-    n = input("Please enter 'ok':")
-    if n.strip() == 'ok':
+    if GPIO.input(Sw2) == 0:
         break
     
 print("running sample") 
@@ -216,14 +214,13 @@ while True:
 ###PBS wash 1
 
 pumps.buzz(0)
-print("add 200 uL 1x PBS, then type 'ok'")
+print("add 200 uL 1x PBS, then push 'ok'")
 
 while True:
-    n = input("Please enter 'ok':")
-    if n.strip() == 'ok':
+    if GPIO.input(Sw2) == 0:
         break
     
-print("running sample") 
+print("running first PBS wash") 
 print("Rate:", pumps.set_rate(-1, 'MH', addr))
 print("Volume:", pumps.set_volume(0.2, 'ML',  addr))
 print("Run:", pumps.run(addr))
@@ -237,14 +234,13 @@ while True:
 ###PBS wash 2
 
 pumps.buzz(0)
-print("add 800 uL 1x PBS, then type 'ok'")
+print("add 800 uL 1x PBS, then push 'ok'")
 
 while True:
-    n = input("Please enter 'ok':")
-    if n.strip() == 'ok':
+    if GPIO.input(Sw2) == 0:
         break
     
-print("running sample") 
+print("running second PBS wash") 
 print("Rate:", pumps.set_rate(-1, 'MH', addr))
 print("Volume:", pumps.set_volume(0.8, 'ML',  addr))
 print("Run:", pumps.run(addr))
@@ -254,20 +250,39 @@ while True:
     if stat == 'S':
         print("Second PBS wash complete")
         break
+
+###PBS wash 3
+
+pumps.buzz(0)
+print("add 1000 uL 1x PBS, then push 'ok'")
+
+while True:
+    if GPIO.input(Sw2) == 0:
+        break
     
+print("running third PBS wash") 
+print("Rate:", pumps.set_rate(-1, 'MH', addr))
+print("Volume:", pumps.set_volume(1, 'ML',  addr))
+print("Run:", pumps.run(addr))
+
+while True:
+    stat = pumps.status(addr)
+    if stat == 'S':
+        print("Third PBS wash complete")
+        break
+       
 ###  LYSIS
 
 pumps.buzz(0)
-print("Switch to lysate syringe, add 700 uL QiaZOL, and type 'ok'")
+print("Switch to lysate syringe, add 700 uL QiaZOL, and push 'ok'")
 
 while True:
-    n = input("Please enter 'ok':")
-    if n.strip() == 'ok':
+    if GPIO.input(Sw2) == 0:
         break
 
 print("pulling in QiaZOL") 
 print("Rate:", pumps.set_rate(-50, 'MH', addr))
-print("Volume:", pumps.set_volume(0.5, 'ML',  addr))
+print("Volume:", pumps.set_volume(0.7, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:

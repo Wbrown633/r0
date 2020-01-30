@@ -318,4 +318,4 @@ while True:
         print("QiaZOL extraction complete")
         break
 
- GPIO.cleanup() # clean up all GPIO 
+GPIO.cleanup() # clean up all GPIO 

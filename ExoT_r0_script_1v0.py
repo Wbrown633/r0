@@ -150,9 +150,9 @@ while True:
     if stat == 'S':
         print("F127 fast step complete")
         break
-#10 minute pause. 0.016ML/0.1 MH = 0.16H = 10 min
+#10 minute pause. 0.500ML/0.5 MH = 1H = 60 min
 
-print("running slow flow for 10 minutes")
+print("running slow flow for 60 minutes")
 print("Rate:", pumps.set_rate(-500, 'UH', addr))
 print("Volume:", pumps.set_volume(0.5, 'ML',  addr))
 print("Run:", pumps.run(addr))

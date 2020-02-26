@@ -1,7 +1,7 @@
 # Script written for Hanfei flow rate experiment
 # 10 mL sample volume
 # 5, 10, 15, 25, 50 ml/hr 
-# 5v0, 5v1, 5v2, 5v3, 5v4, 5v5 
+# 5v0, 5v1, 5v2, 5v3, 5v4
 # 20 mL syringe waste
 # 5 mL syringe lysate
 
@@ -210,7 +210,7 @@ while True:
     
 print("running sample") 
 print("Rate:", pumps.set_rate(-15, 'MH', addr))
-print("Volume:", pumps.set_volume(10, 'ML',  addr))
+print("Volume:", pumps.set_volume(9.99, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:

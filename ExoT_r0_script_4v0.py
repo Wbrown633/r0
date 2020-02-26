@@ -216,7 +216,7 @@ while True:
     
 print("running sample") 
 print("Rate:", pumps.set_rate(-10, 'MH', addr))
-print("Volume:", pumps.set_volume(10, 'ML',  addr))
+print("Volume:", pumps.set_volume(9.99, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:

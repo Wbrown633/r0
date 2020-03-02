@@ -20,7 +20,7 @@ import RPi.GPIO as GPIO
 
 # RasPi Pin definitions
 Sw1 = 16 # User Switch supply
-Sw2 = 12 # User Switch read
+Sw2 = 6 # User Switch read
 
 # Pin setup
 GPIO.setmode(GPIO.BCM) # Broadcom pin numbering scheme

@@ -53,7 +53,7 @@ pumps = PumpNetwork(ser)
 WASTE_ADDR = 0
 #LYSATE_ADDR = 2
 WASTE_DIAMETER_mm = 20.20
-#LYSATE_DIAMETER_mm = 12.45
+LYSATE_DIAMETER_mm = 12.45
 
 scheduled_events = []
 
@@ -284,6 +284,9 @@ while True:
 
 pumps.buzz(0)
 print("Switch to lysate syringe, add 700 uL QiaZOL, and push 'ok'")
+
+
+pumps.set_diameter(diameter_mm=LYSATE_DIAMETER_mm, addr=WASTE_ADDR)
 
 while True:
     if GPIO.input(Sw2) == 0:

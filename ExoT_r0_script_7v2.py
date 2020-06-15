@@ -1,7 +1,7 @@
 # Script written for Erica's T2 v0/r0 side-by-side
 # 1 mL sample volume
 # 15 ml/hr 
-# 7v0
+# 7v2
 # 5 mL syringe waste
 # 5 mL syringe lysate
 

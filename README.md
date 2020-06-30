@@ -1,6 +1,6 @@
 # Chip Diagnostics Alpha Device
 
-Repository to be cloned on the chip diagnostics alpha devices.
+Repository to be cloned on the chip diagnostics r0 devices.
 
 # ReleaseLog
 

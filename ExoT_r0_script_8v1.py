@@ -126,7 +126,7 @@ while True:
 ##ENGAGE PUMP
 
 print("Rate:", pumps.set_rate(-5, 'MM', addr))
-print("Volume:", pumps.set_volume(0.4, 'ML',  addr))
+print("Volume:", pumps.set_volume(1, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:

@@ -341,35 +341,4 @@ while True:
         break
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print("Extracting QiaZOL") 
-print("Rate:", pumps.set_rate(-50, 'MH', addr))
-print("Volume:", pumps.set_volume(2.5, 'ML',  addr))
-print("Run:", pumps.run(addr))
-
-while True:
-    stat = pumps.status(addr)
-    if stat == 'S':
-        print("QiaZOL extraction complete")
-        break
-
 GPIO.cleanup() # clean up all GPIO 

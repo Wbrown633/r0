@@ -42,7 +42,7 @@ DEBUG_MODE = False
 
 if not DEBUG_MODE:
     # Make sure the 'real' protocol is used
-    PROTOCOL_FILE_NAME = "cda-protocol-v01.json"
+    PROTOCOL_FILE_NAME = "ExoT_r0_script_14v0.json"
 else:
     logging.warning("CDA: *** DEBUG MODE ***")
 
@@ -52,7 +52,7 @@ ser = serial.Serial("/dev/ttyUSB0", 19200, timeout=2)
 pumps = PumpNetwork(ser)
 WASTE_ADDR = 2
 #LYSATE_ADDR = 2
-WASTE_DIAMETER_mm = 20.10
+WASTE_DIAMETER_mm = 12.45
 LYSATE_DIAMETER_mm = 12.45
 
 scheduled_events = []

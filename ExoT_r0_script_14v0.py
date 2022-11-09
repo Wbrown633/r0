@@ -50,7 +50,7 @@ logging.info(f"CDA: Using protocol: '{PROTOCOL_FILE_NAME}''")
 
 ser = serial.Serial("/dev/ttyUSB0", 19200, timeout=2)
 pumps = PumpNetwork(ser)
-WASTE_ADDR = 2
+WASTE_ADDR = 0
 #LYSATE_ADDR = 2
 WASTE_DIAMETER_mm = 12.45
 LYSATE_DIAMETER_mm = 12.45
@@ -138,6 +138,8 @@ while True:
     if GPIO.input(Sw2) == 0:
         break
 
+time.sleep(0.5)
+
 ##F127
 
 pumps.buzz(WASTE_ADDR)
@@ -197,8 +199,10 @@ while True:
     if GPIO.input(Sw2) == 0:
         break
 
+time.sleep(0.5)
+
 pumps.buzz(WASTE_ADDR)
-print("add 0.5 mL Sample, then push the switch")
+print("add 0.50 mL Sample, then push the switch")
 
 while True:
     if GPIO.input(Sw2) == 0:
@@ -206,7 +210,7 @@ while True:
     
 print("running sample") 
 print("Rate:", pumps.set_rate(-1.0, 'MH', addr))
-print("Volume:", pumps.set_volume(0.5, 'ML',  addr))
+print("Volume:", pumps.set_volume(0.45, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:
@@ -222,6 +226,8 @@ print("Remove syringe at needle, collect flow-through, replace syringe")
 while True:
     if GPIO.input(Sw2) == 0:
         break
+
+time.sleep(0.5)
 
 pumps.buzz(WASTE_ADDR)
 print("add 700 uL 1x PBS, then push the switch")
@@ -291,6 +297,7 @@ while True:
     if GPIO.input(Sw2) == 0:
         break
 
+time.sleep(0.5)
 
 print("Add 700 uL QIAzol, and push the switch")
 
@@ -300,7 +307,7 @@ while True:
 
 print("pulling in QIAzol") 
 print("Rate:", pumps.set_rate(-15, 'MH', addr))
-print("Volume:", pumps.set_volume(0.95, 'ML',  addr))
+print("Volume:", pumps.set_volume(1.5, 'ML',  addr))
 print("Run:", pumps.run(addr))
 
 while True:
